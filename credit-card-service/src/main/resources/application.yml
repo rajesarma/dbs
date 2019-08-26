@@ -1,0 +1,39 @@
+server:
+  port: 8021
+  servlet:
+    context-path: /
+
+spring:
+  # IDENTITY ===============================================================================
+  application:
+    name: credit-card-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+auth_token: aW5mdXNpb25zb2Z0OnBhc3N3b3Jk
+
+# ACTUATOR ENDPOINTS =====================================================================
+management:
+  endpoint:
+    health:
+      enabled: true
+      roles: ["ADMIN", "USER"]
+      show-details: when_authorized
+    httptrace:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /application
+      exposure:
+        include: "*"
+        exclude: loggers
+
+info:
+  app:
+    name: Credit Card Service
+    java:
+      version: 8
+    type: Spring Boot
