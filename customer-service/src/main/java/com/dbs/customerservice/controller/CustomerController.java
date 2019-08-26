@@ -11,6 +11,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+/**
+ * CustomerController
+ *
+ * Controller class for Customer Data
+ *
+ * @author lakshmirajeswararao.p
+ * */
+
 @RestController
 @RequestMapping("/customer")
 @EnableWebMvc
@@ -23,6 +31,14 @@ public class CustomerController {
     CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
+
+    /**
+     * This post method takes the JSON input and gives a JSON String value
+     * This method validates the customer for Credit Card.
+     *
+     * @param customer Customer data
+     * @return A Response Entity of status
+     */
 
     @PostMapping(value = "/data", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> postCustomerData(@RequestBody Customer customer) {

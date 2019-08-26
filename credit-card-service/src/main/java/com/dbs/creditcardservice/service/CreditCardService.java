@@ -10,6 +10,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * CreditCardService
+ *
+ * Service class for Credit Card Service
+ *
+ * @author lakshmirajeswararao.p
+ * */
+
 @Service
 public class CreditCardService {
 
@@ -22,8 +30,19 @@ public class CreditCardService {
         this.creditCardRepository = creditCardRepository;
     }
 
+    /**
+     * This method takes the Pan as input and gives a String as status
+     * This method validates the customer whether he is eligible for credit card or not.
+     * Checks if the customer with the specified Pan No. is present in the credit card Dataase. If not returns SELECT
+     * Checks if the salary meets the minimum salary condition, If yes SELECT otherwise REJECT
+     * Checks if the customer data found in the Credit Card database then check for existing loans.
+     * If loans are present then check if the EMI is less than 0 percent of the salary. If yes SELECT otherwise REJECT
+     *
+     * @param panNo PAN No.
+     * @return A String value of status
+     */
+
     public String findByPanNo(String panNo) {
-//    public String findByPanNo(String panNo, long salary) {
 
         log.info("<CREDIT-CARD-SERVICE><CREDIT-CARD-DATA-SERVICE:CREDIT CARD SERVICE><Requesting for Credit Card Service for validation>");
 

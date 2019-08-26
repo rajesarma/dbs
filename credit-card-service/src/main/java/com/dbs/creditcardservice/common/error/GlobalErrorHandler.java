@@ -9,8 +9,24 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * GlobalErrorHandler
+ *
+ * Component class for Global Error
+ *
+ * @author lakshmirajeswararao.p
+ * */
+
+
 @RestController
 public class GlobalErrorHandler implements ErrorController {
+
+    /**
+     * This method handles http errors in the project returns a Response Entity of the message
+     *
+     * @param request HttpServletRequest
+     * @return ResponseEntity
+     */
 
     @RequestMapping("/error")
     public ResponseEntity<String> handleError(HttpServletRequest request) {

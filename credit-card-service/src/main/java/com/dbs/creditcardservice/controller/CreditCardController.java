@@ -13,6 +13,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * CreditCardController
+ *
+ * Controller class for Credit Card Service
+ *
+ * @author lakshmirajeswararao.p
+ * */
+
 @RestController
 public class CreditCardController {
 
@@ -28,8 +36,14 @@ public class CreditCardController {
         this.creditCardService = creditCardService;
     }
 
-//    @GetMapping(value = "/credit-card/{pan}/{salary}}", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity<String> findByPanNo(@RequestHeader("X-Auth-Token") String authToken, @PathVariable("pan") String pan, @PathVariable("salary") long salary) {
+    /**
+     * This get method takes the PAN No. as JSON input and gives a JSON String Response
+     * This method validates the customer for Credit Card.
+     *
+     * @param authToken Header Value
+     * @param pan Pan
+     * @return A Response Entity of status
+     */
 
     @GetMapping(value = "/credit-card/{pan}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> findByPanNo(@RequestHeader("X-Auth-Token") String authToken, @PathVariable("pan") String pan) {

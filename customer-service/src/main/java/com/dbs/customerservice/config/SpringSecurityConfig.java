@@ -10,6 +10,14 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+/**
+ * SpringSecurityConfig
+ *
+ * Configuration class for Spring Security
+ *
+ * @author lakshmirajeswararao.p
+ * */
+
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -26,6 +34,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         manager.createUser(users.username("user").password("password").roles("USER").build());
         return manager;
     }
+
+    /**
+     * This method takes the Http Security
+     * This method call is configured for the url specified in the method for the the specific User role
+     *
+     * @param http HttpSecurity
+     * @throws Exception e
+     */
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
